@@ -15,7 +15,7 @@
         <div class="list-title">#USERS</div>
         <div id="user-list" class="list">
 
-          <div class="list-element" title="first.second0" userid="first.second0" lastactivedate="Sat Nov 19 2018 20:06:06 GMT+0100 (CET)">Name0</div>
+          <div class="list-element active" title="first.second0" userid="first.second0" lastactivedate="Sat Nov 19 2018 20:06:06 GMT+0100 (CET)">Name0</div>
 
           <div class="list-element" title="first.second1" userid="first.second1" lastactivedate="Sat Nov 22 2018 20:06:06 GMT+0100 (CET)">Name1</div>
 
@@ -23,7 +23,7 @@
 
           <div class="list-element" title="first.second3" userid="first.second3" lastactivedate="Sat Nov 20 2018 20:06:06 GMT+0100 (CET)">Name3</div>
 
-          <div class="list-element" title="first.second4" userid="first.second4" lastactivedate="Sat Nov 23 2018 20:06:06 GMT+0100 (CET)">Name4</div>
+          <div class="list-element" title="first.second4" userid="first.second4" lastactivedate="Sat Nov 25 2018 22:50:06 GMT+0100 (CET)">Name4</div>
 
           <!-- <div class="list-element">Johnny Bravo</div>
           <div class="list-element">Johnny Bravo</div>
@@ -108,7 +108,7 @@
       const UserList = require('./view/UserList.js')
       console.log(UserList)
 
-      //UserList.addUser('jonathan.lurie', 'Jo', new Date());
+      UserList.addUser('jonathan.lurie', 'Jo', new Date());
 
       UserList.onMousedown(function(userId){
         console.log('clicked: ' + userId)

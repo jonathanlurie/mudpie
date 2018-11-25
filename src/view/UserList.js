@@ -26,7 +26,9 @@ class UserList {
     userDiv.setAttribute("lastactivedate", lastActiveDate)
 
     userDiv.addEventListener('mousedown', function(e){
-      mousedownEvent(e.target.getAttribute('userid'))
+      let userId = e.target.getAttribute('userid')
+      UserList.setActive(userId)
+      mousedownEvent(userId)
     })
 
     if (onTop) {
@@ -90,15 +92,39 @@ class UserList {
   }
 
 
+  /**
+   * Adds a green patch if a contact was recently lastActiveDate.
+   * Removes if it no longer is
+   */
   static updateConnectionStatus () {
-    // TODO: add green flag if less then 30 minutes
-    // RECENT_CONNECTION
-    let childrenCollection = userListDiv.children
-    let childrenArray = []
+    let now = new Date()
+    let thirtyMinAgo = new Date(now - RECENT_CONNECTION)
 
     // putting the children in an array (otherwise, they cannot be sorted)
-    for (let i=0; i<childrenCollection.length; i++) {
-      childrenArray.push(childrenCollection[i])
+    for (let i=0; i<userListDiv.children.length; i++) {
+      let userButton = userListDiv.children[i]
+      let lastActiveDate = new Date(userButton.getAttribute('lastactivedate'))
+
+      // reset
+      userButton.classList.remove('list-element-recently_connected')
+
+      if (lastActiveDate > thirtyMinAgo) {
+        userButton.classList.add('list-element-recently_connected')
+      }
+    }
+  }
+
+  static setActive (userId) {
+    // set all to inactive
+    for (let i=0; i<userListDiv.children.length; i++) {
+      let userButton = userListDiv.children[i]
+      userButton.classList.remove('active')
+    }
+
+    let theActiveUser = UserList.getUserButton(userId)
+
+    if (theActiveUser) {
+      theActiveUser.classList.add('active')
     }
   }
 }

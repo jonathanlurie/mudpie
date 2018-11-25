@@ -164,3 +164,8 @@ textarea, select, input, button, div {
   margin-right: 8px;
   border-radius: 10px;
 }
+
+.active {
+  color: white;
+  background: rgba(0,0,0,0.5);
+}
