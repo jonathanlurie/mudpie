@@ -15,7 +15,7 @@
         <div class="list-title">#USERS</div>
         <div id="user-list" class="list">
 
-          <div class="list-element active" title="first.second0" userid="first.second0" lastactivedate="Sat Nov 19 2018 20:06:06 GMT+0100 (CET)">Name0</div>
+          <div class="list-element" title="first.second0" userid="first.second0" lastactivedate="Sat Nov 19 2018 20:06:06 GMT+0100 (CET)">Name0</div>
 
           <div class="list-element" title="first.second1" userid="first.second1" lastactivedate="Sat Nov 22 2018 20:06:06 GMT+0100 (CET)">Name1</div>
 
@@ -106,19 +106,28 @@
     <script>
       // You can also require other files to run in this process
       const ThreadListButtons = require('./view/ThreadListButtons.js')
+
       let userListButtons = new ThreadListButtons('user-list')
+      let hubListButtons = new ThreadListButtons('hub-list')
+
       userListButtons.addThread('jonathan.lurie', 'Jo', new Date());
       userListButtons.onMousedown(function(threadId){
         console.log('User clicked: ' + threadId)
+
+        // make it so that no hub button active:
+        hubListButtons.noActive()
       })
 
 
 
 
-      let hubListButtons = new ThreadListButtons('hub-list')
+
       hubListButtons.addThread('the.hub', 'The Hub', new Date());
       hubListButtons.onMousedown(function(threadId){
         console.log('Hub clicked: ' + threadId)
+
+        // make it so that no hub button active:
+        userListButtons.noActive()
       })
 
 

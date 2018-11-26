@@ -42,6 +42,8 @@ class ThreadListButtons {
     } else {
       this._threadListButtonsDiv.appendChild(threadDiv)
     }
+
+    this.sortByActivityDate()
   }
 
 
@@ -125,17 +127,29 @@ class ThreadListButtons {
     }
   }
 
+
+  /**
+   * The thread with the given ID has its button turned 'active'
+   */
   setActive (threadId) {
     // set all to inactive
-    for (let i=0; i<this._threadListButtonsDiv.children.length; i++) {
-      let threadButton = this._threadListButtonsDiv.children[i]
-      threadButton.classList.remove('active')
-    }
+    this.noActive()
 
     let theActiveThread = this.getThreadButton(threadId)
 
     if (theActiveThread) {
       theActiveThread.classList.add('active')
+    }
+  }
+
+
+  /**
+   * Make it so that no button is active any longer
+   */
+  noActive () {
+    for (let i=0; i<this._threadListButtonsDiv.children.length; i++) {
+      let threadButton = this._threadListButtonsDiv.children[i]
+      threadButton.classList.remove('active')
     }
   }
 }
