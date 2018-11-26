@@ -105,14 +105,28 @@
 
     <script>
       // You can also require other files to run in this process
-      const UserList = require('./view/UserList.js')
-      console.log(UserList)
-
-      UserList.addUser('jonathan.lurie', 'Jo', new Date());
-
-      UserList.onMousedown(function(userId){
-        console.log('clicked: ' + userId)
+      const ThreadListButtons = require('./view/ThreadListButtons.js')
+      let userListButtons = new ThreadListButtons('user-list')
+      userListButtons.addThread('jonathan.lurie', 'Jo', new Date());
+      userListButtons.onMousedown(function(threadId){
+        console.log('User clicked: ' + threadId)
       })
+
+
+
+
+      let hubListButtons = new ThreadListButtons('hub-list')
+      hubListButtons.addThread('the.hub', 'The Hub', new Date());
+      hubListButtons.onMousedown(function(threadId){
+        console.log('Hub clicked: ' + threadId)
+      })
+
+
+
+
+
+
+
 
     </script>
   </body>

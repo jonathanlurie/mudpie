@@ -1,7 +1,7 @@
 {
-  "name": "electron-quick-start",
+  "name": "mudpie",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A decentralized serverless chat based on UDP protocol",
   "main": "src/main.js",
   "scripts": {
     "start": "electron ."
