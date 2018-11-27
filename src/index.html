@@ -37,6 +37,7 @@
 
         </div>
         <div class="list-title">#HUBS</div>
+        <input id="add-hub-input" type="text" placeholder='+ add hub +'>
         <div id="hub-list" class="list">
           <div class="list-element">Hub</div>
           <div class="list-element">Hub</div>
@@ -106,6 +107,7 @@
     <script>
       // You can also require other files to run in this process
       const ThreadListButtons = require('./view/ThreadListButtons.js')
+      const AddHubButton = require('./view/AddHubButton')
 
       let userListButtons = new ThreadListButtons('user-list')
       let hubListButtons = new ThreadListButtons('hub-list')
@@ -122,7 +124,7 @@
 
 
 
-      hubListButtons.addThread('the.hub', 'The Hub', new Date());
+      hubListButtons.addThread('The Hub', null, new Date());
       hubListButtons.onMousedown(function(threadId){
         console.log('Hub clicked: ' + threadId)
 
@@ -131,6 +133,7 @@
       })
 
 
+      let addHubButton = new AddHubButton(hubListButtons)
 
 
 

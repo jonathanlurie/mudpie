@@ -26,7 +26,7 @@ class ThreadListButtons {
     let that = this;
     let threadDiv = document.createElement('div')
     threadDiv.className = 'list-element'
-    threadDiv.innerHTML = displayName
+    threadDiv.innerHTML = displayName || threadId
     threadDiv.title = threadId
     threadDiv.setAttribute("threadId", threadId)
     threadDiv.setAttribute("lastactivedate", lastActiveDate)
@@ -151,6 +151,19 @@ class ThreadListButtons {
       let threadButton = this._threadListButtonsDiv.children[i]
       threadButton.classList.remove('active')
     }
+  }
+
+
+  /**
+   * Tell if a thread with a given id exists in the list of buttons
+   */
+  doesExist (threadId) {
+    let allIds = []
+    for (let i=0; i<this._threadListButtonsDiv.children.length; i++) {
+      allIds.push(this._threadListButtonsDiv.children[i].getAttribute('threadId'))
+    }
+
+    return ~allIds.indexOf(threadId)
   }
 }
 

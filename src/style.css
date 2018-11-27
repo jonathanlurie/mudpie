@@ -1,6 +1,6 @@
 body {
-  margin: 0;
   font-family: sans-serif;
+  margin: 0;
 }
 
 textarea, select, input, button, div {
@@ -168,4 +168,59 @@ textarea, select, input, button, div {
 .active {
   color: white;
   background: rgba(0,0,0,0.5);
+}
+
+.inline {
+  display: inline-flex;
+}
+
+#add-hub-input {
+  ont-size: 19px; */
+  border: none;
+  margin: 10px 15px 0px 15px;
+  padding: 7px 7px 7px 15px;
+  font-size: 19px;
+  font-weight: 500;
+  border-left: 5px solid rgba(0,0,0,0);
+  border-top: none;
+  border-bottom: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  border-right: 5px solid rgba(0,0,0,0);
+  width: 75%;
+  font-weight: 200;
+}
+
+#add-hub-input:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+
+.white-background {
+  background: white;
+}
+
+.green-background {
+  background: green;
+}
+
+.red-background {
+  background: red;
+}
+
+
+.white-text {
+  color: white;
+}
+
+.green-text {
+  color: green;
+}
+
+.red-text {
+  color: red;
+}
+
+.black-text {
+  color: black;
 }
