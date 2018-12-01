@@ -1,6 +1,8 @@
 // You can also require other files to run in this process
 const ThreadListButtons = require('./view/ThreadListButtons.js')
 const AddHubButton = require('./view/AddHubButton')
+const ThreadView = require('./view/ThreadView')
+const ThreadViewCollection = require('./view/ThreadViewCollection')
 
 let userListButtons = new ThreadListButtons('user-list')
 let hubListButtons = new ThreadListButtons('hub-list')
@@ -27,3 +29,9 @@ hubListButtons.onMousedown(function(threadId){
 
 
 let addHubButton = new AddHubButton(hubListButtons)
+
+let threadViewCollectionHubs = new ThreadViewCollection()
+let threadViewCollectionUsers = new ThreadViewCollection()
+
+let testThreadView = threadViewCollectionUsers.addNewThreadView('test.thread')
+console.log(testThreadView);

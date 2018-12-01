@@ -99,7 +99,7 @@ textarea, select, input, button, div {
 }
 
 
-#text-history {
+#thread-host{
   background: purple;
   width: 100%;
   height: calc(100% - 100px);
@@ -119,7 +119,7 @@ textarea, select, input, button, div {
 
 .message {
   background: #7fffff;
-  padding: 15px 20px;
+  padding: 5px 20px 15px 20px;
   margin: 20px 30px 20px 30px;
   font-size: 25px;
   max-width: max-content;
@@ -223,4 +223,17 @@ textarea, select, input, button, div {
 
 .black-text {
   color: black;
+}
+
+.message-info {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+
+.thread-welcome-message {
+  text-align: center;
+  padding: 15px 0 10px 0;
+  font-size: 18px;
+  color: #0000006b;
 }
