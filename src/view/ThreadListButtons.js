@@ -22,7 +22,7 @@ class ThreadListButtons {
   /**
    * Add the button for a thread
    */
-  addThread (threadId, displayName, lastActiveDate, onTop=true) {
+  addThread (threadId, displayName, lastActiveDate) {
     let that = this;
     let threadDiv = document.createElement('div')
     threadDiv.className = 'list-element'
@@ -37,12 +37,8 @@ class ThreadListButtons {
       that._mousedownEvent(threadId)
     })
 
-    if (onTop) {
-      this._threadListButtonsDiv.insertBefore(threadDiv, this._threadListButtonsDiv.firstChild)
-    } else {
-      this._threadListButtonsDiv.appendChild(threadDiv)
-    }
-
+    //this._threadListButtonsDiv.insertBefore(threadDiv, this._threadListButtonsDiv.firstChild)
+    this._threadListButtonsDiv.appendChild(threadDiv)
     this.sortByActivityDate()
   }
 
@@ -125,6 +121,11 @@ class ThreadListButtons {
         threadButton.classList.add('list-element-recently_connected')
       }
     }
+  }
+
+  updateActivityDate (threadId, date) {
+    let threadButton = this.getThreadButton(threadId)
+    threadButton.setAttribute('lastactivedate', date)
   }
 
 

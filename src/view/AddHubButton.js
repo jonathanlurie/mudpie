@@ -8,7 +8,11 @@ class AddHubButton {
     this._hubListButton = hubListButton
 
     this._hubAddInput.addEventListener('keyup', function(e) {
-      let hubNameProposal = that._hubAddInput.value
+      let hubNameProposal = that._hubAddInput.value.trim()
+
+      if (hubNameProposal === '') {
+        return
+      }
 
       if(that._hubListButton.doesExist(hubNameProposal)) {
         that._hubAddInput.classList.remove('green-text')
@@ -16,14 +20,19 @@ class AddHubButton {
       } else {
         that._hubAddInput.classList.add('green-text')
         that._hubAddInput.classList.remove('red-text')
+
+        if (e.key === 'Enter') {
+          that._addNewEntry(hubNameProposal)
+          that._hubAddInput.value = ''
+        }
       }
 
-      // if (e.key === 'Enter') {
-      //
-      // } else {
-      //
-      // }
+
     })
+  }
+
+  _addNewEntry (newHubName) {
+    this._hubListButton.addThread (newHubName, null, new Date())
   }
 }
 
