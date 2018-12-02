@@ -16,6 +16,48 @@ textarea, select, input, button, div {
   right: 0;
   width: 100ww;
   height: 50px;
+  display: inline-flex;
+}
+
+#status-input{
+  margin-left: 0px;
+  width: 300px;
+  color: #0006;
+  text-align: left;
+  width: 70%;
+}
+
+#displayname-input {
+  position: fixed;
+  right: 0;
+  width: 20%;
+}
+
+.topbar-input {
+  margin: 8px 7px 0px 7px;
+  padding: 5px 7px 5px 3px;
+  font-size: 19px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  transition: all 0.3s;
+  width: 170px;
+  font-weight: 200;
+  background: #ffffff00;
+  color: #FFF;
+  text-align: right;
+}
+
+.topbar-input:hover {
+  background: #ffffff44;
+}
+
+.topbar-input::placeholder {
+  color: #fff6;
+}
+
+#user-info {
+  position: fixed;
+  right: 0px;
+  width: calc(100% - 250px);
 }
 
 #middle {
@@ -147,14 +189,6 @@ textarea, select, input, button, div {
   font-weight: 400;
 }
 
-.title {
-  font-family: "Helvetica Neue";
-  font-size: 30px;
-  padding: 5px 0px 0px 15px;
-  font-weight: 200;
-  color: white;
-  display: inline-flex;
-}
 
 .title span {
   width: 18px;
@@ -175,7 +209,6 @@ textarea, select, input, button, div {
 }
 
 #add-hub-input {
-  ont-size: 19px; */
   border: none;
   margin: 10px 15px 0px 15px;
   padding: 7px 7px 7px 15px;
@@ -236,4 +269,10 @@ textarea, select, input, button, div {
   padding: 15px 0 10px 0;
   font-size: 18px;
   color: #0000006b;
+}
+
+
+#header-logo {
+  padding: 8px 0px 0px 15px;
+  height: 35px;
 }
