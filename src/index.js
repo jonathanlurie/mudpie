@@ -3,6 +3,8 @@ const ThreadListButtons = require('./view/ThreadListButtons.js')
 const AddHubButton = require('./view/AddHubButton')
 const ThreadView = require('./view/ThreadView')
 const ThreadViewCollection = require('./view/ThreadViewCollection')
+const Config = require('./core/Config')
+console.log(Config)
 
 let userListButtons = new ThreadListButtons('user-list')
 let hubListButtons = new ThreadListButtons('hub-list')
