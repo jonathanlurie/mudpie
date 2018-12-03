@@ -1,5 +1,6 @@
 body {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
+  font-family: "Helvetica Neue", sans-serif;
   margin: 0;
 }
 
@@ -7,6 +8,73 @@ textarea, select, input, button, div {
   outline: none;
 }
 
+#splash-screen {
+  background: rgb(53, 247, 175);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+
+#splash-container {
+  width: 350px;
+  height: 300px;
+  /* background: rgba(0,0,0,0.1); */
+  position: fixed;
+  top: 0;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#splash-logo {
+  width: 100%;
+}
+
+#git-splash-logo {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.splash-label {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 200;
+  color: #fff;
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
+
+.splash-input {
+  width: calc(100% - 20px);
+  border: 0;
+  line-height: 35px;
+  height: 35px;
+  padding: 0;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 300;
+  color: #af2ee0;
+  margin-bottom: 5px;
+  margin: 0px 10px 5px 10px;
+}
+
+.splash-input::placeholder {
+  color: rgb(53, 247, 175);
+}
 
 #top {
   background: orangered;
@@ -14,7 +82,7 @@ textarea, select, input, button, div {
   top: 0;
   left: 0;
   right: 0;
-  width: 100ww;
+  width: 100vw;
   height: 50px;
   display: inline-flex;
 }
@@ -53,6 +121,8 @@ textarea, select, input, button, div {
 .topbar-input::placeholder {
   color: #fff6;
 }
+
+
 
 #user-info {
   position: fixed;

@@ -5,6 +5,7 @@ const ThreadView = require('./view/ThreadView')
 const ThreadViewCollection = require('./view/ThreadViewCollection')
 const Config = require('./core/Config')
 const NameAndStatusView = require('./view/NameAndStatusView')
+require('./view/GeneralUi').init()
 
 console.log(Config)
 

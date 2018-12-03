@@ -6,16 +6,15 @@
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/jonathanlurie/mudpie",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "UDP",
+    "chat",
+    "serverless",
+    "decentralized"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Jonathan Lurie",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^3.0.7"
   },
