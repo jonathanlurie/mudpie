@@ -1,4 +1,4 @@
-[](./assets/logo_black.png)  
+[](https://github.com/jonathanlurie/mudpie/blob/master/assets/logo_black.png?raw=true)  
 
 [WORK IN PROGRESS]  
 
