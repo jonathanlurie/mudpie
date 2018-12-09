@@ -1,13 +1,19 @@
 
 
-class NameAndStatusView {
+class UserInfoView {
   constructor() {
     this._topBarDisplaynameInput = document.getElementById('displayname-input')
     this._topBarStatusInput = document.getElementById('status-input')
+    this._splashScreen = document.getElementById('splash-screen')
+    this._splashStartButton = document.getElementById('start-button')
+    this._splashUserIdInput = document.getElementById('splash-uniqueid-input')
+    this._splashDisplayNameInput = document.getElementById('splash-displayname-input')
+
 
     this._callbacks = {
       displaynameChanged: function(){},
-      statusChanged: function(){}
+      statusChanged: function(){},
+      splashStart: function(){} // args: userUniqueId{string}, userDisplayName{string}
     }
 
     let that = this
@@ -43,6 +49,31 @@ class NameAndStatusView {
     })
 
 
+    that._splashUserIdInput.addEventListener('keyup', function(e){
+      if(e.key === 'Enter'){
+        that._splashStartButton.click()
+      }
+    })
+
+    that._splashDisplayNameInput.addEventListener('keyup', function(e){
+      console.log(e);
+      if(e.key === 'Enter'){
+        that._splashStartButton.click()
+      }
+    })
+
+    this._splashStartButton.addEventListener('click', function(e){
+      let userId = that._splashUserIdInput.value.trim()
+      let displayName = that._splashDisplayNameInput.value.trim()
+
+      if(userId !== '' && displayName !== ''){
+        that._callbacks.splashStart(
+          userId,
+          displayName
+        )
+      }
+    })
+
   }
 
 
@@ -60,6 +91,11 @@ class NameAndStatusView {
 
     this._callbacks[eventName] = cb
   }
+
+
+  hideSplashScreen() {
+    this._splashScreen.classList.add('hidden')
+  }
 }
 
-module.exports = NameAndStatusView
+module.exports = UserInfoView

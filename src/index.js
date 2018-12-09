@@ -1,21 +1,41 @@
-// You can also require other files to run in this process
-const ThreadListButtons = require('./view/ThreadListButtons.js')
-const AddHubButton = require('./view/AddHubButton')
-const ThreadView = require('./view/ThreadView')
-const ThreadViewCollection = require('./view/ThreadViewCollection')
+const UserInfoView = require('./view/UserInfoView')
+const MudpieCore = require('./core/MudpieCore')
 const Config = require('./core/Config')
-const NameAndStatusView = require('./view/NameAndStatusView')
 require('./view/GeneralUi').init()
 
-console.log(Config)
 
-let nameAndStatusView = new NameAndStatusView()
-console.log(nameAndStatusView)
+// 0- necessary for splash scree
+let userInfoView = new UserInfoView()
 
-let userListButtons = new ThreadListButtons('user-list')
-let hubListButtons = new ThreadListButtons('hub-list')
+// 1- try to load an existing config
+let userConfig = Config.loadConfig()
 
-userListButtons.addThread('jonathan.lurie', 'Jo', new Date());
+// 1.1- if we have a config file with user data, we don't show the splash screen
+if(userConfig) {
+  userInfoView.hideSplashScreen()
+  mudpieCore = new MudpieCore(userConfig.userId, userConfig.userDisplayName)
+} else {
+  userConfig = Config.createBlankConfig()
+}
+
+// 2. If splash screen active, we collect the userUniqueID and the display name
+userInfoView.on('splashStart', function(userId, displayName){
+  userConfig.userId = userId
+  userConfig.userDisplayName = displayName
+
+  // 2.1- write the config
+  Config.writeConfig()
+
+  // 2.2- run mudpie
+  userInfoView.hideSplashScreen()
+  mudpieCore = new MudpieCore(userConfig.userId, userConfig.userDisplayName)
+
+})
+
+
+
+/*
+userListButtons.addThread('jonathan.lurie', 'Jo', new Date())
 userListButtons.onMousedown(function(threadId){
   console.log('User clicked: ' + threadId)
 
@@ -36,10 +56,7 @@ hubListButtons.onMousedown(function(threadId){
 })
 
 
-let addHubButton = new AddHubButton(hubListButtons)
 
-let threadViewCollectionHubs = new ThreadViewCollection()
-let threadViewCollectionUsers = new ThreadViewCollection()
 
-let testThreadView = threadViewCollectionUsers.addNewThreadView('test.thread')
-console.log(testThreadView);
+//let testThreadView = threadViewCollectionUsers.addNewThreadView('test.thread')
+*/
