@@ -13,7 +13,8 @@ let userConfig = Config.loadConfig()
 // 1.1- if we have a config file with user data, we don't show the splash screen
 if(userConfig) {
   userInfoView.hideSplashScreen()
-  mudpieCore = new MudpieCore(userConfig.userId, userConfig.userDisplayName)
+  console.log(333);
+  mudpieCore = new MudpieCore(userConfig)
 } else {
   userConfig = Config.createBlankConfig()
 }
@@ -28,7 +29,7 @@ userInfoView.on('splashStart', function(userId, displayName){
 
   // 2.2- run mudpie
   userInfoView.hideSplashScreen()
-  mudpieCore = new MudpieCore(userConfig.userId, userConfig.userDisplayName)
+  mudpieCore = new MudpieCore(userConfig)
 
 })
 

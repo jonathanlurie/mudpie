@@ -24,6 +24,7 @@ class UserInfoView {
         // bluring makes it call the event for bluring
         that._topBarStatusInput.blur()
       }
+      e.stopImmediatePropagation()
     })
 
     this._topBarStatusInput.addEventListener('focusout', function(e){
@@ -39,6 +40,7 @@ class UserInfoView {
         // bluring makes it call the event for bluring
         that._topBarDisplaynameInput.blur()
       }
+      e.stopImmediatePropagation()
     })
 
     this._topBarDisplaynameInput.addEventListener('focusout', function(e){
@@ -53,6 +55,7 @@ class UserInfoView {
       if(e.key === 'Enter'){
         that._splashStartButton.click()
       }
+      e.stopImmediatePropagation()
     })
 
     that._splashDisplayNameInput.addEventListener('keyup', function(e){
@@ -60,6 +63,7 @@ class UserInfoView {
       if(e.key === 'Enter'){
         that._splashStartButton.click()
       }
+      e.stopImmediatePropagation()
     })
 
     this._splashStartButton.addEventListener('click', function(e){
@@ -96,6 +100,12 @@ class UserInfoView {
   hideSplashScreen() {
     this._splashScreen.classList.add('hidden')
   }
+
+
+  updateDisplayName(displayName) {
+    this._topBarDisplaynameInput.value = displayName
+  }
+
 }
 
 module.exports = UserInfoView
